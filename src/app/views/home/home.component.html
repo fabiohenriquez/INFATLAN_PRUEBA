@@ -1,0 +1,36 @@
+<div class="search-container">
+  <div class="search-box">
+      <input  type="text" id="text_field" name="text_field" placeholder="Search" [(ngModel)]="text_field">
+      <button (click)="geoLocation()"> Usar mi ubicacion</button>
+      <button (click)="onSubmit()">  Buscar</button>
+  </div>
+
+</div>
+<br>
+<h1>
+  Region: {{region}}
+</h1>
+<div class="days_container">
+  <div class="rows" *ngFor="let days of weather_days">
+    <!-- Este componente es el de la card, por un fallo de angular y no perder tiempo lo use directamente, de igual forma el componente esta creado en la carpeta components :) -->
+
+   <!--  <app-weather-card [childMessage]="text_field"></app-weather-card> -->
+
+   <div class="w-box">
+    <h1> {{days.day}}</h1>
+    <div class="img-container">
+      <img src="{{days.iconURL}}"/>
+      <div class="values-container">
+        <h2 style="font-size: 1rem;">
+          Min: {{days.min_temp.c}}
+        </h2>
+        <h2 style="font-size: 1rem;">
+          Max: {{days.max_temp.c}}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</div>
+
