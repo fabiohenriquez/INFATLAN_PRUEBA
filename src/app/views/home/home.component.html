@@ -12,10 +12,11 @@
 </h1>
 <div class="days_container">
   <div class="rows" *ngFor="let days of weather_days">
+    <!-- IMPORTANTE -->
     <!-- Este componente es el de la card, por un fallo de angular y no perder tiempo lo use directamente, de igual forma el componente esta creado en la carpeta components :) -->
+    <!-- IMPORTANTE -->
 
    <!--  <app-weather-card [childMessage]="text_field"></app-weather-card> -->
-
    <div class="w-box">
     <h1> {{days.day}}</h1>
     <div class="img-container">

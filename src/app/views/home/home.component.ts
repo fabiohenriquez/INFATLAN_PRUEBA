@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(private endpoint:AppEndpoints) { }
 
   ngOnInit(): void {
-
   }
 
   get_weather(){
@@ -25,8 +24,9 @@ export class HomeComponent implements OnInit {
 
       let temp0:any = res[0].next_days
       let temp:Array<Weather> = []
-
+      this.region = res[0].region
       temp0.forEach((element: Weather) => {
+
           temp.push(element)
       });
 
@@ -45,20 +45,23 @@ export class HomeComponent implements OnInit {
       this.weather_days = []
     }
     if(this.text_field== region_temp1){
-      this.region = "Tegucigalpa"
+
       this.geoLocation()
     }
     if(this.text_field == region_temp2){
-      this.region = "London"
+
        this.get_weather()
     }
 
   }
 
   geoLocation(){
-    this.region = 'Tegucigalpa'
+
     this.endpoint.get_weather_v2().subscribe(res=>{
+
       let temp0:any = res[1].next_days
+
+      this.region = res[1].region
       let temp:Array<Weather> = []
 
       temp0.forEach((element: Weather) => {
